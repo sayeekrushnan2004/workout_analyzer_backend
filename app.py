@@ -1,5 +1,6 @@
 from fastapi import FastAPI, UploadFile, File, HTTPException, WebSocket, WebSocketDisconnect
 from fastapi.middleware.cors import CORSMiddleware
+import uvicorn
 from fastapi.responses import JSONResponse
 import base64
 from pose_estimation import get_pose_keypoints_and_annotated_image

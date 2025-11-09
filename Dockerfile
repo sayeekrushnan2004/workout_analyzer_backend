@@ -28,11 +28,8 @@ RUN pip install --no-cache-dir --upgrade pip setuptools wheel && \
 # Copy application code
 COPY . .
 
-# Force rebuild by copying timestamp (breaks Docker cache)
-COPY .buildtime /tmp/.buildtime
-
 # Expose port (Railway will override with PORT env var)
 EXPOSE 8000
 
-# Use sh -c to properly expand $PORT environment variable
-CMD sh -c "uvicorn app:app --host 0.0.0.0 --port ${PORT:-8000}"
+# Run Python directly - it has proper PORT handling in app.py
+CMD ["python", "app.py"]
