@@ -7,3 +7,8 @@ numpy==1.26.2
 python-jose==3.3.0
 pydantic==2.5.2
 flask-cors
+# Additional dependencies for posture analysis
+matplotlib==3.8.2
+# Testing dependencies
+requests==2.31.0
+Pillow==10.1.0
