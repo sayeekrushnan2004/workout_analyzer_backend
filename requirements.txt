@@ -1,12 +1,13 @@
 fastapi==0.104.1
-uvicorn==0.24.0
+uvicorn[standard]==0.24.0
 python-multipart==0.0.6
-mediapipe==0.10.8
-opencv-python==4.8.1.78
+mediapipe==0.10.9
+opencv-python-headless==4.8.1.78
 numpy==1.26.2
 python-jose==3.3.0
 pydantic==2.5.2
 flask-cors
+websockets==12.0
 # Additional dependencies for posture analysis
 matplotlib==3.8.2
 # Testing dependencies
