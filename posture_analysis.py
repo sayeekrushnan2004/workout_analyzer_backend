@@ -18,7 +18,7 @@ mp_drawing = mp.solutions.drawing_utils
 # Posture Thresholds
 NECK_ANGLE_THRESH = 175
 SPINE_TILT_THRESH = 10
-SHOULDER_TILT_THRESH = 10
+SHOULDER_TILT_THRESH = 25
 LEAN_THRESHOLD = 30
 HEAD_DROP_THRESH = 60
 
@@ -185,19 +185,19 @@ class PostureAnalyzer:
         
         # Severe Lean Right
         elif metrics.nose_x > metrics.shoulder_mid_x + (LEAN_THRESHOLD * 2.4):
-            return "Severe Lean Right", (0, 165, 255)
+            return "Severe Lean Left", (0, 165, 255)
         
         # Severe Lean Left
         elif metrics.nose_x < metrics.shoulder_mid_x - (LEAN_THRESHOLD * 2.4):
-            return "Severe Lean Left", (0, 165, 255)
+            return "Severe Lean Right", (0, 165, 255)
         
         # Leaning Right
         elif metrics.nose_x > metrics.shoulder_mid_x + (LEAN_THRESHOLD * 0.5):
-            return "Leaning Right", (0, 165, 255)
+            return "Leaning Left", (0, 165, 255)
         
         # Leaning Left
         elif metrics.nose_x < metrics.shoulder_mid_x - (LEAN_THRESHOLD * 0.5):
-            return "Leaning Left", (0, 165, 255)
+            return "Leaning Right", (0, 165, 255)
         
         # Good Posture
         elif (metrics.neck_angle >= NECK_ANGLE_THRESH - 3 and
@@ -392,3 +392,4 @@ class PostureSession:
             "longest_bad_duration": round(self.longest_bad_duration, 2),
             "current_bad_duration": round(self.current_bad_duration, 2)
         }
+
